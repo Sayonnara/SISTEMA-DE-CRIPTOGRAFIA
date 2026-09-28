@@ -1,0 +1,276 @@
+
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+   ============================== */
+
+/* Remove margens e espaçamentos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f7;
+    color: #222;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==============================
+   CABEÇALHO
+   ============================== */
+
+header {
+    background-color: #1f2937;
+    color: white;
+
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+
+header p {
+    font-size: 16px;
+}
+
+
+/* ==============================
+   CONTEÚDO PRINCIPAL
+   ============================== */
+
+main {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+
+/* Caixa principal do sistema */
+.container {
+    width: 100%;
+    max-width: 700px;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Título da área principal */
+.container h2 {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==============================
+   CAMPOS
+   ============================== */
+
+.campo {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+}
+
+
+/* Texto que fica acima dos campos */
+label {
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+
+/* Campos de texto, número e lista */
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+
+/* Quando o usuário clicar no campo */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+}
+
+
+/* Área para mensagens maiores */
+textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* Texto pequeno de orientação */
+small {
+    margin-top: 6px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* ==============================
+   ÁREA DAS CHAVES
+   ============================== */
+
+.chave {
+    display: none;
+}
+
+
+/* ==============================
+   MATRIZ DA CIFRA DE HILL
+   ============================== */
+
+.matriz {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+/* ==============================
+   BOTÕES
+   ============================== */
+
+.botoes {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+button {
+    flex: 1;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* Efeito quando o mouse passa sobre o botão */
+button:hover {
+    background-color: #76b903;
+}
+
+
+/* ==============================
+   RESULTADO
+   ============================== */
+
+#resultado {
+    background-color: #f8fafc;
+}
+
+
+/* ==============================
+   MENSAGEM DO SISTEMA
+   ============================== */
+
+#mensagemSistema {
+    text-align: center;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+/* ==============================
+   RODAPÉ
+   ============================== */
+
+footer {
+    background-color: #1f2937;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+   ============================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 20px;
+    }
+
+
+    .botoes {
+        flex-direction: column;
+    }
+
+
+    button {
+        width: 100%;
+    }
+
+}
+
