@@ -37,6 +37,10 @@ const areaChaveCesar = document.getElementById("chaveCesar");
 const areaChaveVigenere = document.getElementById("chaveVigenere");
 const areaChaveHill = document.getElementById("chaveHill");
 
+// Área e botão da força bruta da Cifra de César
+const areaForcaBruta = document.getElementById("areaForcaBruta");
+const btnForcaBruta = document.getElementById("btnForcaBruta");
+
 
 // ======================================================
 // MOSTRAR A CHAVE DO ALGORITMO SELECIONADO
@@ -49,6 +53,7 @@ function mostrarChave() {
     areaChaveCesar.style.display = "none";
     areaChaveVigenere.style.display = "none";
     areaChaveHill.style.display = "none";
+    areaForcaBruta.style.display = "none";
 
 
     // Mostra somente a chave escolhida
@@ -59,6 +64,7 @@ function mostrarChave() {
     } else if (algoritmo.value === "cesar") {
 
         areaChaveCesar.style.display = "block";
+        areaForcaBruta.style.display = "flex";
 
     } else if (algoritmo.value === "vigenere") {
 
@@ -128,9 +134,9 @@ function criptografarOtp(mensagem, chave) {
 
 
     // A chave deve ter a mesma quantidade de letras
-    if (chave.length !== quantidadeLetras) {
+    if (chave.length < quantidadeLetras) {
 
-        return "ERRO: a chave OTP deve ter a mesma quantidade de letras da mensagem.";
+        return "ERRO: a chave OTP deve ter a quantidade de letras maior ou igual à da mensagem.";
     }
 
 
@@ -199,9 +205,9 @@ function descriptografarOtp(mensagem, chave) {
         .length;
 
 
-    if (chave.length !== quantidadeLetras) {
+    if (chave.length < quantidadeLetras) {
 
-        return "ERRO: a chave OTP deve ter a mesma quantidade de letras da mensagem.";
+        return "ERRO: a chave OTP deve ter a quantidade de letras maior ou igual à da mensagem.";
     }
 
 
@@ -698,6 +704,52 @@ function descriptografarHill(mensagem, matriz) {
     return resultadoHill;
 }
 
+
+
+
+// ======================================================
+// CÉSAR - FORÇA BRUTA (QUESTÃO 5A)
+// ======================================================
+
+function forcaBrutaCesar(textoCifrado) {
+
+    let possibilidades = "";
+
+    // A chave 0 gera o próprio texto e não faz parte
+    // das 25 possibilidades de deslocamento solicitadas.
+    for (let deslocamento = 1; deslocamento <= 25; deslocamento++) {
+
+        const textoClaro =
+            descriptografarCesar(textoCifrado, deslocamento);
+
+        possibilidades +=
+            "Chave " + deslocamento + ": " + textoClaro + "\n";
+    }
+
+    return possibilidades.trim();
+}
+
+
+// Botão da força bruta
+btnForcaBruta.addEventListener("click", () => {
+
+    const textoCifrado = mensagem.value.trim();
+
+    if (algoritmo.value !== "cesar") {
+
+        alert("Selecione a Cifra de César.");
+        return;
+    }
+
+    if (textoCifrado === "") {
+
+        alert("Digite o texto cifrado no campo Mensagem.");
+        return;
+    }
+
+    // A força bruta não utiliza a chave informada no campo.
+    resultado.value = forcaBrutaCesar(textoCifrado);
+});
 
 // ======================================================
 // BOTÃO CRIPTOGRAFAR
