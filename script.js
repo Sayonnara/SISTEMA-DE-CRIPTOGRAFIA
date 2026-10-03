@@ -527,7 +527,7 @@ function obterMatrizHill() {
 
 
 // ======================================================
-// HILL - CRIPTOGRAFAR
+// Cifra de HILL - CRIPTOGRAFAR
 // ======================================================
 
 function criptografarHill(mensagem, matriz) {
